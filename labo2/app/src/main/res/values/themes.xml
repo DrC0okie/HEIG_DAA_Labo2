@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Labo2" parent="Base.Theme.Labo2" />
+    <style name="Theme.Labo2" parent="Base.Theme.Labo2">
+        <item name="colorPrimaryDark">@color/status_bar</item>
+    </style>
 </resources>
