@@ -10,7 +10,7 @@ import ch.heigvd.daa.labo2.R
 
 class Part3Fragment : Fragment() {
 
-    private var fragmentNumber: Int? = null
+    private var fragmentNumber = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

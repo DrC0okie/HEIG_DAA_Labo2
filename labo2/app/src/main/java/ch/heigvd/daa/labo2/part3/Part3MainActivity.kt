@@ -24,12 +24,11 @@ class Part3MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.buttonBack.setOnClickListener { onBackClicked() }
-
-        binding.buttonClose.setOnClickListener { onCloseClicked() }
-
-        binding.buttonNext.setOnClickListener { onNextClicked() }
-
+        with(binding) {
+            buttonBack.setOnClickListener { onBackClicked() }
+            buttonClose.setOnClickListener { onCloseClicked() }
+            buttonNext.setOnClickListener { onNextClicked() }
+        }
     }
 
     private fun onNextClicked() {
@@ -41,9 +40,7 @@ class Part3MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun onCloseClicked() {
-        finish()
-    }
+    private fun onCloseClicked() = finish()
 
     private fun onBackClicked() {
         if (supportFragmentManager.backStackEntryCount > 1) {

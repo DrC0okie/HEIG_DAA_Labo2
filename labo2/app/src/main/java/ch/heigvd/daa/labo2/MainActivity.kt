@@ -22,20 +22,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setClickListeners()
-    }
 
-    override fun onBackPressed() {
-        with(binding){
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawer(GravityCompat.START)
+        // Handle the back button event with the drawer
+        onBackPressedDispatcher.addCallback(this) {
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
             } else {
-                super.onBackPressed()
+                finish()
             }
         }
     }
 
-    private fun setClickListeners(){
-        with(binding){
+    private fun setClickListeners() {
+        with(binding) {
 
             buttonPart1.setOnClickListener {
                 startActivity(Intent(this@MainActivity, Part1MainActivity::class.java))
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             //Nasty way to find the github link TextView in the drawer content
             githubLink = navView.getHeaderView(0).findViewById(R.id.text_view_github_link)
 
-            // Handles the click on the github "link" in the drawer
+            // Handles the intent on click on the github "link" in the drawer
             githubLink.setOnClickListener {
                 val uri: Uri = Uri.parse("https://github.com/DrC0okie/HEIG_DAA_Labo2")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
