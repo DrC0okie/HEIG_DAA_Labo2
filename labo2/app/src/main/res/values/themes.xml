@@ -6,6 +6,10 @@
     </style>
 
     <style name="Theme.Labo2" parent="Base.Theme.Labo2">
-        <item name="colorPrimaryDark">@color/status_bar</item>
+        <item name="colorPrimary">@color/status_bar</item>
+        <item name="colorPrimaryVariant">@color/nav_header</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="colorOnPrimary">@color/black</item>
+
     </style>
 </resources>
