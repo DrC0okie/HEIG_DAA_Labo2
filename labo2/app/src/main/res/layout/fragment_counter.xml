@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        tools:context=".fragments.CounterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/f_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/f_counter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:text="MyCounterFragment"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/f_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <Button
+            android:id="@+id/f_counter_increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/f_counter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Increment" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
