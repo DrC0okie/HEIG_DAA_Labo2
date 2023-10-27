@@ -12,12 +12,13 @@
         android:id="@+id/text_view_welcome_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/main_welcome_message_anonymous"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/centeredButton"
+        android:id="@+id/button_edit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EDITER"
