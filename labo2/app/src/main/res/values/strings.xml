@@ -16,4 +16,7 @@
     <string name="group_members">Group members:</string>
     <string name="main_welcome_message_anonymous"> Bienvenue, veuillez entrer un nom </string>
     <string name="main_welcome_message"> Bienvenue %s !</string>
+    <string name="editer">EDITER</string>
+    <string name="sauver">SAUVER</string>
+    <string name="entrez_votre_nom">Entrez votre nom</string>
 </resources>
