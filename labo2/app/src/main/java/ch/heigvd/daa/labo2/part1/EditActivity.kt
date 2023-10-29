@@ -2,7 +2,6 @@ package ch.heigvd.daa.labo2.part1
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import ch.heigvd.daa.labo2.databinding.ActivityEditPart1Binding
 
 /**
