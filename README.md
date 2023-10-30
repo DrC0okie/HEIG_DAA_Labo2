@@ -9,6 +9,8 @@ Membres :
 - Anthony David
 - Timothée Van Hove
 
+Classe: DAA-TIC-B
+
 Professeur : Fabien Dutoit
 
 Assistant : Ilias Goujgali 
@@ -17,7 +19,7 @@ Assistant : Ilias Goujgali
 
 ## Introduction
 
-Ce laboratoire est constitué de plusieurs manipulations destinées à nous familiariser avec le fonctionnement des briques logicielles de base du SDK Android.
+Afin de  développer des applications efficaces, il est important de comprendre les rouages de base de l'architecture Android. Dans ce  laboratoire, nous avons exploré les briques logicielles essentielles du SDK, en mettant un accent particulier sur les  activités et les fragments. L'objectif est de comprendre le fonctionnement interne de ces éléments mais aussi de comprendre leur interaction.
 
 **Activité principale**:
 
@@ -33,22 +35,28 @@ Nous avons choisi de changer la thème principal en orange (couleur de la HEIG),
 
 ## 1. Activités
 
-Durant la mise en œuvre de cette partie, nous avons décidé d'implémenter une activité parente *Part1BaseActivity* qui fait un logging des appels de méthodes de changement d'état. Les deux activités principales *Part1MainActivity* et *Part1EditActivtiy* héritent de cette activité parente afin que tout changement d'état soit loggé.
+Durant la mise en œuvre de cette partie, nous avons décidé d'implémenter une activité parente *Part1BaseActivity* qui fait un logging des appels de méthodes de changement d'état (lifecycle). Les deux activités principales *Part1MainActivity* et *Part1EditActivtiy* héritent de cette activité parente afin que tout changement d'état soit loggé.
 
-Lorsque l'utilisateur appui sur le bouton "back" dans la deuxième activité (soit Part1EditActivtiy ), l'appel qui provient du bouton *save* ne sera jamais fait, l'activité se termine pas avec un code de résultat RESULT_OK et donc ne va pas renvoyer un nouveau nom. Mais si l'on regarde mieux les appels de changement on d'état on peut voir que ce qui se passe est que, pour l'activité d'édit, onPause() est call, on switch à l'activité Main puis onStop() et onDestroy() sont call.
+Lorsque l'utilisateur appui sur le bouton "back" dans la deuxième activité (soit Part1EditActivtiy ), l'appel qui provient du bouton *save* ne sera jamais fait, l'activité se termine pas avec un code de résultat RESULT_OK et donc ne va pas renvoyer un nouveau nom. Mais si l'on regarde mieux les appels de changement d'état, on peut voir que, pour l'activité d'édit, onPause() est call, on switch à l'activité Main puis onStop() et onDestroy() sont call.
 
 Pour la mise en œuvre de la rotation d'écran, ce qui est important est de de comprendre est ce qui se passe lors de la rotation. L'activité est mise en pause, détruite puis reconstruite. Il faut donc sauver le nom dans un bundle, ce qui est faisable avec *onSaveInstanceState* et *onRestoreInstanceState*. On sauve le nom actuel dans *onSaveInstanceState* juste avant sa déstruction et lors d'un *onRestoreInstanceState* on récupère le nom qui vient d'être sauvé.
 
 
 
-![L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve.](figures/diagram1_part1.png)
-Diagramme des états quand l’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve.
+Diagramme des états quand l’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve:
 
+![L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve.](figures/diagram1_part1.png)
+
+
+
+Diagramme des états quand l’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en mode paysage, renseigne son prénom et sauve:
 
 ![L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en mode paysage, renseigne son prénom et sauve.](figures/diagram2_part1.png)
-Diagramme des états quand l’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en mode paysage, renseigne son prénom et sauve.
+
+
 
 ## 2. Les fragments, premiers pas
+
 Dans notre mise en œuvre de l'activité hébergeant deux fragments, plusieurs observations sont à noter. Premièrement, les deux fragments fournis, à savoir le CounterFragment et le ColorFragment, sont conçus pour implémenter la restauration de leur état, offrant une expérience utilisateur cohérente même en cas de changements de configuration, tels que la rotation de l'écran. Cependant, un aspect intéressant réside dans le fait que le ColorFragment est capable de restaurer sa couleur, même en l'absence d'une sauvegarde explicite de son état. Cette capacité s'explique par le comportement par défaut d'Android, qui sauvegarde et restaure automatiquement l'état de certaines vues et éléments de l'interface utilisateur. Lorsqu'un changement de configuration se produit, Android conserve l'état de ces éléments, ce qui permet au ColorFragment de restaurer la couleur précédemment sélectionnée sans nécessiter une intervention explicite du développeur.
 
 D'autre part, si l'on envisage de placer deux instances du CounterFragment dans l'activité, nous constatons qu'elles fonctionnent de manière indépendante. En cas de rotation de l'écran, chaque instance du CounterFragment maintiendra son propre état, ce qui peut conduire à des valeurs distinctes pour chaque instance. Cela est dû au fait que chaque Fragment est associé à l'activité qui les héberge, et Android gère la restauration de leur état en conséquence. Les deux instances du CounterFragment ne partagent pas d'état commun, ce qui signifie que leurs compteurs sont indépendants les uns des autres. Cela reflète le comportement attendu, car chaque Fragment conserve son propre état en fonction de l'Activité parente, ce qui garantit une restauration correcte de l'état, même en cas de plusieurs instances du même Fragment dans une même activité.
@@ -111,3 +119,7 @@ Dans notre scénario, l'utilisation de `replace` pour les fragments suivants gar
 
 
 ## Conclulsion
+
+À travers une série d'exercices et de mises en œuvre impliquant la gestion du cycle de vie, la restauration d'états dans des fragments, chaque exercice nous a offert un aperçu sur l'importance de chaque composant dans l'écosystème Android. 
+
+La capacité de gérer et de restaurer l'état d'une application, notamment après des interruptions comme une rotation d'écran, est essentielle pour offrir une expérience utilisateur homogène. De plus, notre exploration du `FragmentManager` et de ses transactions nous a permis de saisir la flexibilité offerte par les fragments lors de la construction d'UI.
