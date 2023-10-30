@@ -39,6 +39,14 @@ Lorsque l'utilisateur appui sur le bouton "back" dans la deuxième activité (so
 
 Pour la mise en œuvre de la rotation d'écran, ce qui est important est de de comprendre est ce qui se passe lors de la rotation. L'activité est mise en pause, détruite puis reconstruite. Il faut donc sauver le nom dans un bundle, ce qui est faisable avec *onSaveInstanceState* et *onRestoreInstanceState*. On sauve le nom actuel dans *onSaveInstanceState* juste avant sa déstruction et lors d'un *onRestoreInstanceState* on récupère le nom qui vient d'être sauvé.
 
+
+
+![](figures/diagram1_part1.png)
+
+
+
+![](figures/diagram2_part1.png)
+
 ## 2. Les fragments, premiers pas
 Dans notre mise en œuvre de l'activité hébergeant deux fragments, plusieurs observations sont à noter. Premièrement, les deux fragments fournis, à savoir le CounterFragment et le ColorFragment, sont conçus pour implémenter la restauration de leur état, offrant une expérience utilisateur cohérente même en cas de changements de configuration, tels que la rotation de l'écran. Cependant, un aspect intéressant réside dans le fait que le ColorFragment est capable de restaurer sa couleur, même en l'absence d'une sauvegarde explicite de son état. Cette capacité s'explique par le comportement par défaut d'Android, qui sauvegarde et restaure automatiquement l'état de certaines vues et éléments de l'interface utilisateur. Lorsqu'un changement de configuration se produit, Android conserve l'état de ces éléments, ce qui permet au ColorFragment de restaurer la couleur précédemment sélectionnée sans nécessiter une intervention explicite du développeur.
 
