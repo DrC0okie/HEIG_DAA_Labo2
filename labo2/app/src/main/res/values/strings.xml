@@ -19,4 +19,11 @@
     <string name="editer">EDITER</string>
     <string name="sauver">SAUVER</string>
     <string name="entrez_votre_nom">Entrez votre nom</string>
+    <string name="image_representing_a_question_mark">Image representing a question mark</string>
+    <string name="application_logo">Application logo</string>
+    <string name="group_member_3_image">group member 3 image</string>
+    <string name="group_member_2_image">group member 2 image</string>
+    <string name="group_member_1_image">group member 1 image</string>
+    <string name="increment">Increment</string>
+    <string name="mycounterfragment">MyCounterFragment</string>
 </resources>

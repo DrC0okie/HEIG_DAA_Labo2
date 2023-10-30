@@ -1,7 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Labo2" parent="Theme.Material3.DayNight.NoActionBar">
-
     </style>
 
     <style name="CustomButtonCornerSize" parent="ShapeAppearance.MaterialComponents">
