@@ -10,7 +10,7 @@ import ch.heigvd.daa.labo2.databinding.ActivityEditPart1Binding
  * editable text field. The edited name is returned as a result to the calling activity.
  * @author Anthony David, Felix Breval, Timothée Van Hove
  */
-class EditActivity : Part1BaseActivity() {
+class Part1EditActivity : Part1BaseActivity() {
 
     private lateinit var binding: ActivityEditPart1Binding
 

@@ -12,6 +12,11 @@ import ch.heigvd.daa.labo2.part2.Part2MainActivity
 import ch.heigvd.daa.labo2.part3.Part3MainActivity
 import androidx.activity.addCallback
 
+/**
+ * Main entry point activity. Allows the user to choose the part of the lab to execute
+ * This activity hosts a {@link DrawerLayout} that displays addition information about the authors
+ * @author Anthony David, Felix Breval, Timothée Van Hove
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -63,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            // Handle the info button
+            // Handle the info button to open/close the drawer
             imageButtonHelp.setOnClickListener {
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START)

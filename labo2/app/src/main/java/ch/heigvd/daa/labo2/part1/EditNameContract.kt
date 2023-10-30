@@ -12,18 +12,18 @@ import androidx.activity.result.contract.ActivityResultContract
 class EditNameContract : ActivityResultContract<String, String?>() {
 
     /**
-     * Creates an [Intent] for launching [EditActivity] with a given input name.
+     * Creates an [Intent] for launching [Part1EditActivity] with a given input name.
      * @param context The context used to create the intent.
-     * @param input The user's name to be passed to [EditActivity] for editing.
-     * @return An intent to launch [EditActivity].
+     * @param input The user's name to be passed to [Part1EditActivity] for editing.
+     * @return An intent to launch [Part1EditActivity].
      */
     override fun createIntent(context: Context, input: String) =
-        Intent(context, EditActivity::class.java).apply {
+        Intent(context, Part1EditActivity::class.java).apply {
             putExtra(KEY_INPUT_NAME, input)
         }
 
     /**
-     * Parses the result from [EditActivity] to extract the possibly edited name.
+     * Parses the result from [Part1EditActivity] to extract the possibly edited name.
      * @param resultCode The result code returned from the launched activity.
      * @param intent The intent containing the data/result returned from the launched activity.
      * @return The edited name, or null if the result was not successful or no name was provided.
