@@ -32,7 +32,12 @@ Nous avons choisi d'implémenter le layout de l'activité principale dans un `Dr
 Nous avons choisi de changer la thème principal en orange (couleur de la HEIG), ainsi que le corner radius des boutons de base, pour qu'ils soient identiques à ceux présents dans la consigne. Les thèmes sont changés dans res/values/themes.xml
 
 ## 1. Activités
-TODO by Felix
+
+Durant la mise en œuvre de cette partie, nous avons décidé d'implémenter une activité parente *Part1BaseActivity* qui fait un logging des appels de méthodes de changement d'état. Les deux activités principales *Part1MainActivity* et *Part1EditActivtiy* héritent de cette activité parente afin que tout changement d'état soit loggé.
+
+Lorsque l'utilisateur appui sur le bouton "back" dans la deuxième activité (soit Part1EditActivtiy ), l'appel qui provient du bouton *save* ne sera jamais fait, l'activité se termine pas avec un code de résultat RESULT_OK et donc ne va pas renvoyer un nouveau nom. Mais si l'on regarde mieux les appels de changement on d'état on peut voir que ce qui se passe est que, pour l'activité d'édit, onPause() est call, on switch à l'activité Main puis onStop() et onDestroy() sont call.
+
+Pour la mise en œuvre de la rotation d'écran, ce qui est important est de de comprendre est ce qui se passe lors de la rotation. L'activité est mise en pause, détruite puis reconstruite. Il faut donc sauver le nom dans un bundle, ce qui est faisable avec *onSaveInstanceState* et *onRestoreInstanceState*. On sauve le nom actuel dans *onSaveInstanceState* juste avant sa déstruction et lors d'un *onRestoreInstanceState* on récupère le nom qui vient d'être sauvé.
 
 ## 2. Les fragments, premiers pas
 Dans notre mise en œuvre de l'activité hébergeant deux fragments, plusieurs observations sont à noter. Premièrement, les deux fragments fournis, à savoir le CounterFragment et le ColorFragment, sont conçus pour implémenter la restauration de leur état, offrant une expérience utilisateur cohérente même en cas de changements de configuration, tels que la rotation de l'écran. Cependant, un aspect intéressant réside dans le fait que le ColorFragment est capable de restaurer sa couleur, même en l'absence d'une sauvegarde explicite de son état. Cette capacité s'explique par le comportement par défaut d'Android, qui sauvegarde et restaure automatiquement l'état de certaines vues et éléments de l'interface utilisateur. Lorsqu'un changement de configuration se produit, Android conserve l'état de ces éléments, ce qui permet au ColorFragment de restaurer la couleur précédemment sélectionnée sans nécessiter une intervention explicite du développeur.
