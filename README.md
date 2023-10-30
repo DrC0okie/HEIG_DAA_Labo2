@@ -17,8 +17,19 @@ Assistant : Ilias Goujgali
 
 ## Introduction
 
-Ce laboratoire est constitué de plusieurs manipulations destinées à nous familiariser avec le
-fonctionnement des briques logicielles de base du SDK Android.
+Ce laboratoire est constitué de plusieurs manipulations destinées à nous familiariser avec le fonctionnement des briques logicielles de base du SDK Android.
+
+**Activité principale**:
+
+Nous avons choisi d'implémenter une activité principale permettant à l'utilisateur d'accéder aux 3 parties du labo sur l'appui d'un bouton. Cela nous permet de plus facilement séparer le travail. 
+
+**Petit extra**:
+
+Nous avons choisi d'implémenter le layout de l'activité principale dans un `DrawerLayout`, ce qui nous permet d'y afficher une `NavigationView` personalisée quand l'utilisateur appuie sur un `ImageButton`. Dans la `NavigationView`, nous avons affiché le nom des membres de notre groupe, ainsi qu'un lien vers le repo github du laboratoire. Le lien s'ouvre dans le navigateur par défaut gr^ace à in `intent` implicite.
+
+**Theme**:
+
+Nous avons choisi de changer la thème principal en orange (couleur de la HEIG), ainsi que le corner radius des boutons de base, pour qu'ils soient identiques à ceux présents dans la consigne. Les thèmes sont changés dans res/values/themes.xml
 
 ## 1. Activités
 TODO by Felix
